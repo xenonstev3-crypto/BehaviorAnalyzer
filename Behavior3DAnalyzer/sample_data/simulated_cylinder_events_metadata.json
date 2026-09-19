@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0", "trial_id": "simulated_events_001", "animal_id": "simulated_mouse_002", "coordinate_unit": "mm",
+  "cylinder": {"radius": 100.0, "height": 300.0},
+  "coordinate_reference": {"method": "metadata_direct", "bottom_center_raw": [0.0, 0.0, 0.0], "top_center_raw": [0.0, 0.0, 300.0], "x_reference_raw": [100.0, 0.0, 0.0], "x_reference_is_point": true},
+  "body_point_mapping": {"left_forepaw_tip": "left_paw_tip", "right_forepaw_tip": "right_paw_tip"}
+}

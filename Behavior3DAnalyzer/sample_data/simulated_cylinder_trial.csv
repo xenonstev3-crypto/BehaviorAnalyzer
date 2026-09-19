@@ -1,0 +1,6 @@
+trial_id,animal_id,frame,time_s,fps,coordinate_unit,left_paw_tip_x,left_paw_tip_y,left_paw_tip_z,left_paw_tip_likelihood,right_paw_tip_x,right_paw_tip_y,right_paw_tip_z,right_paw_tip_likelihood,nose_tip_x,nose_tip_y,nose_tip_z,cylinder_bottom_center_x,cylinder_bottom_center_y,cylinder_bottom_center_z,cylinder_top_center_x,cylinder_top_center_y,cylinder_top_center_z,x_axis_marker_x,x_axis_marker_y,x_axis_marker_z
+simulated_trial_001,simulated_mouse_001,0,0.000,30,mm,20,-5,43,0.99,10,5,38,0.98,13,0,63,10,-5,3,10,-5,303,110,-5,3
+simulated_trial_001,simulated_mouse_001,1,0.033,30,mm,30,-5,47,0.99,9,7,40,0.98,15,0,68,10,-5,3,10,-5,303,110,-5,3
+simulated_trial_001,simulated_mouse_001,2,0.067,30,mm,45,-5,52,0.98,8,9,42,0.97,18,0,73,10,-5,3,10,-5,303,110,-5,3
+simulated_trial_001,simulated_mouse_001,3,0.100,30,mm,70,-5,60,0.98,7,11,45,0.97,20,0,78,10,-5,3,10,-5,303,110,-5,3
+simulated_trial_001,simulated_mouse_001,4,0.133,30,mm,95,-5,66,0.97,6,13,48,0.96,23,0,83,10,-5,3,10,-5,303,110,-5,3

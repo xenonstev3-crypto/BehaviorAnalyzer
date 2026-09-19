@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "trial_id": "example_trial_001",
+  "animal_id": "example_mouse_001",
+  "coordinate_unit": "mm",
+  "cylinder": {"radius": 100.0, "height": 300.0},
+  "coordinate_reference": {
+    "method": "metadata_direct",
+    "bottom_center_raw": [0.0, 0.0, 0.0],
+    "top_center_raw": [0.0, 0.0, 300.0],
+    "x_reference_raw": [100.0, 0.0, 0.0],
+    "x_reference_is_point": true,
+    "flip_x": false,
+    "flip_y": false
+  },
+  "body_point_mapping": {"left_forepaw_tip": "left_paw_tip", "right_forepaw_tip": "right_paw_tip", "nose_tip": "nose_tip"},
+  "notes": "将示例值替换为本 trial 的真实固定参考；不得用动物平均位置代替 bottom_center_raw。"
+}

@@ -1,0 +1,2 @@
+trial_id,animal_id,frame,time_s,fps,coordinate_unit,left_paw_tip_x,left_paw_tip_y,left_paw_tip_z,left_paw_tip_likelihood,right_paw_tip_x,right_paw_tip_y,right_paw_tip_z,right_paw_tip_likelihood,nose_tip_x,nose_tip_y,nose_tip_z,cylinder_bottom_center_x,cylinder_bottom_center_y,cylinder_bottom_center_z,cylinder_top_center_x,cylinder_top_center_y,cylinder_top_center_z,x_axis_marker_x,x_axis_marker_y,x_axis_marker_z
+example_trial_001,example_mouse_001,0,0.0,30,mm,,,,,,,,,,,,,,,,,,,,

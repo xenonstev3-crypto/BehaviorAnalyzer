@@ -1,0 +1,13 @@
+trial_id,animal_id,frame,time_s,fps,coordinate_unit,left_paw_tip_x,left_paw_tip_y,left_paw_tip_z,left_paw_tip_likelihood,right_paw_tip_x,right_paw_tip_y,right_paw_tip_z,right_paw_tip_likelihood,cylinder_bottom_center_x,cylinder_bottom_center_y,cylinder_bottom_center_z,cylinder_top_center_x,cylinder_top_center_y,cylinder_top_center_z,x_axis_marker_x,x_axis_marker_y,x_axis_marker_z
+simulated_events_001,simulated_mouse_002,0,0.000,30,mm,50,0,50,0.99,50,0,50,0.99,0,0,0,0,0,300,100,0,0
+simulated_events_001,simulated_mouse_002,1,0.033,30,mm,100,0,50,0.99,50,0,50,0.99,0,0,0,0,0,300,100,0,0
+simulated_events_001,simulated_mouse_002,2,0.067,30,mm,100,0,50,0.99,100,0,50,0.99,0,0,0,0,0,300,100,0,0
+simulated_events_001,simulated_mouse_002,3,0.100,30,mm,100,0,50,0.99,100,0,50,0.99,0,0,0,0,0,300,100,0,0
+simulated_events_001,simulated_mouse_002,4,0.133,30,mm,50,0,50,0.99,100,0,50,0.99,0,0,0,0,0,300,100,0,0
+simulated_events_001,simulated_mouse_002,5,0.167,30,mm,50,0,50,0.99,50,0,50,0.99,0,0,0,0,0,300,100,0,0
+simulated_events_001,simulated_mouse_002,6,0.200,30,mm,50,0,50,0.99,50,0,50,0.99,0,0,0,0,0,300,100,0,0
+simulated_events_001,simulated_mouse_002,7,0.233,30,mm,100,0,50,0.99,50,0,50,0.99,0,0,0,0,0,300,100,0,0
+simulated_events_001,simulated_mouse_002,8,0.267,30,mm,100,0,50,0.99,50,0,50,0.99,0,0,0,0,0,300,100,0,0
+simulated_events_001,simulated_mouse_002,9,0.300,30,mm,100,0,50,0.99,50,0,50,0.99,0,0,0,0,0,300,100,0,0
+simulated_events_001,simulated_mouse_002,10,0.333,30,mm,50,0,50,0.99,100,0,50,0.99,0,0,0,0,0,300,100,0,0
+simulated_events_001,simulated_mouse_002,11,0.367,30,mm,50,0,50,0.99,100,0,50,0.99,0,0,0,0,0,300,100,0,0
