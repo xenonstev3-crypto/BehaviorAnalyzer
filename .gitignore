@@ -1,0 +1,29 @@
+# Python bytecode and test caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local environments and configuration
+.venv/
+venv/
+env/
+.env
+
+# User-generated analysis outputs and raw data
+behavior3d_results/
+*_outputs/
+results/
+data/raw/
+*.h5
+*.pickle
+*.mp4
+*.gif
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
