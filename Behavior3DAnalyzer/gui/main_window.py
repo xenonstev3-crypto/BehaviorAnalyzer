@@ -27,23 +27,29 @@ from experiments.cylinder.analysis import CylinderConfig, analyze_cylinder, load
 from experiments.cylinder.reporting import write_report_bundle
 from experiments.cylinder.publication_visuals import write_3d_keypoint_video, write_publication_figure
 from .coordinate_preview import CoordinatePreview
+from .sticker_workflow import StickerWorkflow
 
 
-class MainWindow(QMainWindow):
-    def __init__(self):
+class CylinderWorkflow(QWidget):
+    def __init__(self, return_home):
         super().__init__()
+        self.return_home = return_home
         self.df: pd.DataFrame | None = None
         self.metadata: dict = {}
         self.input_path: Path | None = None
         self.transformed: pd.DataFrame | None = None
         self.transform_record: dict | None = None
         self.analysis_result = None
-        self.setWindowTitle("Behavior3D Analyzer — Cylinder 全流程原型")
-        self.resize(1200, 760)
         self._build_ui()
 
     def _build_ui(self):
-        tabs = QTabWidget(); self.setCentralWidget(tabs)
+        layout = QVBoxLayout(self)
+        back = QPushButton("← 返回实验选择")
+        back.clicked.connect(self.return_home)
+        layout.addWidget(back, 0, Qt.AlignLeft)
+        tabs = QTabWidget()
+        self.tabs = tabs
+        layout.addWidget(tabs, 1)
         tabs.addTab(self._import_page(), "1. 导入数据")
         tabs.addTab(self._reconstruction_page(), "2. 重建坐标系")
         tabs.addTab(self._analysis_page(), "3. Cylinder 分析")
@@ -274,3 +280,80 @@ class MainWindow(QMainWindow):
             self.reconstruction_status.setStyleSheet("padding:10px; background:#ecfdf5; color:#065f46; border-radius:4px;")
         except (ValueError, DataContractError, ReconstructionError, FileExistsError, OSError, json.JSONDecodeError) as error:
             self.reconstruction_status.setText("未生成结果：" + str(error)); self.reconstruction_status.setStyleSheet("padding:10px; background:#fef2f2; color:#991b1b; border-radius:4px;")
+
+
+class MainWindow(QMainWindow):
+    """Application shell and experiment selector."""
+
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Behavior3D Analyzer")
+        self.resize(1200, 760)
+        from PySide6.QtWidgets import QStackedWidget
+
+        self.stack = QStackedWidget()
+        self.setCentralWidget(self.stack)
+        self.choice_page = self._choice_page()
+        self.stack.addWidget(self.choice_page)
+        self.cylinder_workflow: CylinderWorkflow | None = None
+        self.sticker_workflow: StickerWorkflow | None = None
+
+    def _choice_page(self) -> QWidget:
+        page = QWidget()
+        layout = QVBoxLayout(page)
+        layout.setContentsMargins(70, 55, 70, 55)
+        title = QLabel("Behavior3D Analyzer")
+        title.setStyleSheet("font-size: 28px; font-weight: 600; color: #111827;")
+        subtitle = QLabel(
+            "请选择要进行的行为实验。"
+        )
+        subtitle.setWordWrap(True)
+        subtitle.setStyleSheet("font-size: 15px; color: #374151; margin-bottom: 24px;")
+        layout.addWidget(title)
+        layout.addWidget(subtitle)
+
+        cylinder = QPushButton(
+            "Cylinder Test\n\n三维圆桶坐标重建 → 前肢触壁事件分析 → 结果与导出"
+        )
+        cylinder.setMinimumHeight(150)
+        cylinder.setStyleSheet(
+            "text-align:left; padding:22px; font-size:17px; font-weight:600;"
+            "background:#eff6ff; border:1px solid #93c5fd; border-radius:8px; color:#1e3a8a;"
+        )
+        cylinder.clicked.connect(self._open_cylinder)
+        layout.addWidget(cylinder)
+
+        sticker = QPushButton(
+            "Sticker Test\n\n三维坐标准备 → 贴纸接触与终止候选分析 → 结果与导出"
+        )
+        sticker.setMinimumHeight(150)
+        sticker.setStyleSheet(
+            "text-align:left; padding:22px; font-size:17px; font-weight:600;"
+            "background:#f0fdf4; border:1px solid #86efac; border-radius:8px; color:#14532d;"
+        )
+        sticker.clicked.connect(self._open_sticker)
+        layout.addWidget(sticker)
+        note = QLabel(
+            "原始 CSV 始终保留不变；"
+            "导出时不会覆盖已有同名文件。"
+        )
+        note.setWordWrap(True)
+        note.setStyleSheet("padding:12px; margin-top:18px; background:#fff7ed; color:#9a3412; border-radius:5px;")
+        layout.addWidget(note)
+        layout.addStretch(1)
+        return page
+
+    def _open_cylinder(self):
+        if self.cylinder_workflow is None:
+            self.cylinder_workflow = CylinderWorkflow(self._show_choice)
+            self.stack.addWidget(self.cylinder_workflow)
+        self.stack.setCurrentWidget(self.cylinder_workflow)
+
+    def _open_sticker(self):
+        if self.sticker_workflow is None:
+            self.sticker_workflow = StickerWorkflow(self._show_choice)
+            self.stack.addWidget(self.sticker_workflow)
+        self.stack.setCurrentWidget(self.sticker_workflow)
+
+    def _show_choice(self):
+        self.stack.setCurrentWidget(self.choice_page)

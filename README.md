@@ -24,7 +24,8 @@ If the geometry is incomplete, degenerate, or fails quality control, reconstruct
 - Detects invalid geometry, inconsistent units, missing markers, and excessive marker drift.
 - Analyses left, right, and bilateral wall-touch events using configurable cylinder geometry and quality rules.
 - Exports event tables, frame-level quality records, JSON configuration, Excel, HTML, PDF, publication-oriented figures, and an optional 3D keypoint MP4.
-- Provides a four-page PySide6 GUI for import, reconstruction, cylinder analysis, and export.
+- Provides an experiment-selection PySide6 GUI: Cylinder Test and Sticker Test are independent, parallel workflows with their own import, coordinate preparation, analysis, and export steps.
+- Includes an independent Sticker Test module for target-effector contact events, cessation candidates, publication figures, and a 3D keypoint MP4.
 
 The default preset is named **Literature-common preset**. It is a transparent starting point, not a universal or international standard; all thresholds must be reviewed for the experimental protocol.
 
@@ -59,7 +60,7 @@ python -m unittest discover -s tests -v
 
 ## Project status
 
-This is an early research-software prototype. The cylinder test is the only implemented experiment module. The plugin structure reserves space for future sticker-test and open-field modules, but they are not implemented yet.
+This is an early research-software prototype. Cylinder Test and Sticker Test are implemented as separate, parallel desktop workflows. Open-field and other experiments remain reserved extension points. Sticker cessation remains a reviewable candidate, not a proof of sticker detachment.
 
 ## Documentation
 
